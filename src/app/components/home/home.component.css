@@ -1,0 +1,7 @@
+.cardDashboard {
+  display: flex;
+  max-width: 300px;
+  border-color: cadetblue;
+  border: 1 px;
+  border-style: solid;
+}

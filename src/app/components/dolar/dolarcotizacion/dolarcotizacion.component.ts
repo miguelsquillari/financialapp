@@ -20,16 +20,17 @@ export class DolarcotizacionComponent implements OnDestroy, OnInit{
 
 
   protected getcotizacionDolar(): void{
-    this.apiDolar$ =  this.dolarApi.getDolarcotizacion().pipe(
-     map(data=>{
-      return data.map((item:any) =>{
-        if (item.casa == 'contadoconliqui') item.casa = 'CCL';
-        return item;
+    this.apiDolar$ =  this.dolarApi.getDolarcotizacion()
+    .pipe(
+      map(data=>{
+          return data.map((item:any) =>
+              {
+                if (item.casa == 'contadoconliqui') item.casa = 'CCL';
+                return item;
+              }
+
+            )
       }
-
-      )
-     }
-
      )
     );
   }
