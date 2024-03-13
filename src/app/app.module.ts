@@ -13,6 +13,8 @@ import { DolarblueEvolutionComponent } from './components/dolar/dolarblue-evelut
 import { DolarcotizacionComponent } from './components/dolar/dolarcotizacion/dolarcotizacion.component';
 import { CotizacionCriptoComponent } from './components/cripto/cotizacion-cripto/cotizacion-cripto.component';
 import { HomeComponent } from './components/home/home.component';
+import { CriptoListComponent } from './components/cripto/cripto-list/cripto-list.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { HomeComponent } from './components/home/home.component';
     DolarblueEvolutionComponent,
     DolarcotizacionComponent,
     CotizacionCriptoComponent,
-    HomeComponent
+    HomeComponent, CriptoListComponent
+
   ],
   imports: [
     BrowserModule,

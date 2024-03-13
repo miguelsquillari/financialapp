@@ -28,26 +28,13 @@ export class CotizacionCriptoComponent implements OnInit{
 
 
   ngOnInit(): void {
-    /*this.criptoList$ = this.cripsoService.getCoinList().pipe(
-      map( (data)=>{
-        data.sort(a,b) => {
-          return a.value < b.value ?  -1 : 1;
-        }
-      });
-      return data;
-
-      )
-    );
-*/
    this.cripsoServiceSubs = this.cripsoService.getCoinList().subscribe(
        (data:coin[]) =>{  this.dataCoin = data,
        this.cantPages = Math.ceil(this.dataCoin!.length/this.cantItemsXPage);
        this.dataCoin.sort((a, b) => a.name.localeCompare(b.name));
        this.cantItems = this.dataCoin.length;
       }
-
    );
-   //this.dataCoin = this.dataCoin.sort((a, b) => a.name.localeCompare(b.name));
 
   }
 

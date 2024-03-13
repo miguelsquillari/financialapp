@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:'stocks' , component: StockSearchComponent},
   {path:'evolution', component: DolarblueEvolutionComponent},
   {path:'dolarcotizacion', component: DolarcotizacionComponent},
-  {path: 'cripto', component: CotizacionCriptoComponent}
+  {path: 'criptocotizacion', component: CotizacionCriptoComponent}
 ];
 
 @NgModule({

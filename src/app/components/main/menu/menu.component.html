@@ -8,27 +8,28 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand"  routerLink="stock">FinanApp</a>
+          <a class="navbar-brand"  routerLink="">FinanApp</a>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a class="nav-link active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" >Home</a>
-            </li>
+            </li>-->
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="dolarcotizacion">Dolar</a>
             </li>
+            <!-- Cripto menu -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Cripto</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Price</a></li>
+                <li><a class="dropdown-item" href="#">List Coins</a></li>
+                <!--
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                -->
+              </ul>
+            </li>
+            <!-- -->
 
-            <li class="nav-item">
-              <a  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Cripto</a>
-            </li>
-
-            <ul>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" routerLink="cripto" data-bs-target=".navbar-collapse.show">Cripto Price</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" routerLink="cripto" data-bs-target=".navbar-collapse.show">List Coins</a>
-            </li>
-          </ul>
             <li class="nav-item">
               <a class="nav-link " routerLink="evolution" aria-disabled="true" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Dolar Evolution </a>
             </li>
