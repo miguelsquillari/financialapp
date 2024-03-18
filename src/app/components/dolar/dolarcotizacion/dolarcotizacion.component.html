@@ -4,12 +4,14 @@
   <p> Última Actualización: {{apiDolar[0].fechaActualizacion | date: 'd/M/yy, h:mm a' }}</p>
   <br>
   <div *ngFor="let dolar of apiDolar">
+    <div class="col-xl-6 col-lg-6">
     <div class="card nav2" *ngIf="dolar.casa != 'cripto'">
       <h5>Dolar {{dolar.casa | uppercase}} - {{dolar.moneda | uppercase}}</h5>
       <hr>
       <div><p>Compra $ {{dolar.compra}}</p></div>
       <div><p>Venta $ {{dolar.venta}}</p></div>
     </div>
+  </div>
     <br>
   </div>
 </div>

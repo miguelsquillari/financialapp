@@ -5,13 +5,15 @@ import { DolarblueEvolutionComponent } from './components/dolar/dolarblue-evelut
 import { DolarcotizacionComponent } from './components/dolar/dolarcotizacion/dolarcotizacion.component';
 import { CotizacionCriptoComponent } from './components/cripto/cotizacion-cripto/cotizacion-cripto.component';
 import { HomeComponent } from './components/home/home.component';
+import { AboutmeComponent } from './components/aboutme/aboutme.component';
 
 const routes: Routes = [
   {path:'' , component: HomeComponent},
   {path:'stocks' , component: StockSearchComponent},
   {path:'evolution', component: DolarblueEvolutionComponent},
   {path:'dolarcotizacion', component: DolarcotizacionComponent},
-  {path: 'criptocotizacion', component: CotizacionCriptoComponent}
+  {path: 'criptocotizacion', component: CotizacionCriptoComponent},
+  {path:'aboutme', component: AboutmeComponent}
 ];
 
 @NgModule({

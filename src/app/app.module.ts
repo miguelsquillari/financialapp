@@ -14,6 +14,7 @@ import { DolarcotizacionComponent } from './components/dolar/dolarcotizacion/dol
 import { CotizacionCriptoComponent } from './components/cripto/cotizacion-cripto/cotizacion-cripto.component';
 import { HomeComponent } from './components/home/home.component';
 import { CriptoListComponent } from './components/cripto/cripto-list/cripto-list.component';
+import { AboutmeComponent } from './components/aboutme/aboutme.component';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { CriptoListComponent } from './components/cripto/cripto-list/cripto-list
     DolarblueEvolutionComponent,
     DolarcotizacionComponent,
     CotizacionCriptoComponent,
-    HomeComponent, CriptoListComponent
+    HomeComponent, CriptoListComponent, AboutmeComponent
 
   ],
   imports: [
