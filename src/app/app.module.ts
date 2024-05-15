@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { StockSearchComponent } from './components/stocks/stock-search/stock-search.component';
 import { MenuComponent } from './components/main/menu/menu.component';
 import { DirCurrencyFormatterDirective } from './directives/dir-currency-formatter.directive';
@@ -15,6 +15,8 @@ import { CotizacionCriptoComponent } from './components/cripto/cotizacion-cripto
 import { HomeComponent } from './components/home/home.component';
 import { CriptoListComponent } from './components/cripto/cripto-list/cripto-list.component';
 import { AboutmeComponent } from './components/aboutme/aboutme.component';
+import { coingeckoInterceptor } from './interceptores/coingecko.interceptor';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -27,14 +29,16 @@ import { AboutmeComponent } from './components/aboutme/aboutme.component';
     DolarblueEvolutionComponent,
     DolarcotizacionComponent,
     CotizacionCriptoComponent,
-    HomeComponent, CriptoListComponent, AboutmeComponent
+    HomeComponent, CriptoListComponent, AboutmeComponent, FilterPipe
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, HttpClientModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(withInterceptors([coingeckoInterceptor]))
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

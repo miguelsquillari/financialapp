@@ -19,8 +19,10 @@ export class CotizacionCriptoComponent implements OnInit{
   public cantItems:number = 0;
 
   public dataCoin!:coin[] ;
+  public _dataCoin!:coin[] ;
   public cantItemsXPage :number=10;
-  public cantPages :number=0;
+  cantPages :number=0;
+  public actPages :number=0;
 
   private strip(bandName: string) {
     return bandName;
@@ -28,21 +30,29 @@ export class CotizacionCriptoComponent implements OnInit{
 
 
   ngOnInit(): void {
-   this.cripsoServiceSubs = this.cripsoService.getCoinList().subscribe(
-       (data:coin[]) =>{  this.dataCoin = data,
-       this.cantPages = Math.ceil(this.dataCoin!.length/this.cantItemsXPage);
-       this.dataCoin.sort((a, b) => a.name.localeCompare(b.name));
-       this.cantItems = this.dataCoin.length;
+   this.cripsoServiceSubs = this.cripsoService.getCoinList()
+   .subscribe(
+       (data:coin[]) =>{
+        this.dataCoin = data,
+        this._dataCoin = data,
+        this.cantPages = Math.ceil(this.dataCoin!.length/this.cantItemsXPage);
+        this.dataCoin.sort((a, b) => a.name.localeCompare(b.name));
+        this.cantItems = this.dataCoin.length;
       }
    );
 
   }
 
-  public searchCoin(event:any){
-    const filterValue = event.target.value.toLowerCase();
 
-    if(filterValue == ""){
-      this.dataCoin = this.cantItems > 0? this.dataCoin : [];
+  public searchCoin(event:Event){
+//    let filterValue = event.target.value.toLowerCase();
+  let filterValue =  (event.target as HTMLInputElement).value.toLowerCase();
+
+   // console.log("filter values: " , filterValue.length);
+   /* console.log("filter values 2:" , filterValue);*/
+
+    if(filterValue.length == 0 || filterValue == ""){
+      this.dataCoin = this._dataCoin;
     }else{
       this.dataCoin = this.dataCoin!.filter(item => item.name.toLowerCase().includes(filterValue))
     }
@@ -50,8 +60,14 @@ export class CotizacionCriptoComponent implements OnInit{
     //this.pageChanged(1);
   }
 
+  prePage(){
+
+  }
 
 
+  nextPage(){
+
+  }
 
 }
 

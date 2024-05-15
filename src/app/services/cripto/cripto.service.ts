@@ -15,33 +15,27 @@ export class CriptoService {
 
   constructor() { }
 
-
   public  getCoinList():Observable<coin[]>{
-    let header = new HttpHeaders().set("x-cg-demo-api-key", this.keyApi)
-    return this.http.get<coin[]>("" + this.baseUrl +"coins/list",{headers:header});
+    return this.http.get<coin[]>("" + this.baseUrl +"coins/list");
   }
 
 
-  public getCoinPricebyId(idCoin:string){
-
     /*
+        url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_vol=false&precision=6',
 
-    url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_vol=false&precision=6',
-
-    ************************************************
-    url: 'https://api.coingecko.com/api/v3/simple/price?
-    ids=bitcoin&vs_currencies=usd&precision=5',
+        ************************************************
+        url: 'https://api.coingecko.com/api/v3/simple/price?
+        ids=bitcoin&vs_currencies=usd&precision=5',
     */
 
-    let header = new HttpHeaders().set("x-cg-demo-api-key", this.keyApi)
+  public getCoinPricebyId(idCoin:string){
+   // let header = new HttpHeaders().set("x-cg-demo-api-key", this.keyApi)
     let params = new HttpParams()
     .append("vs_currencies", "usd")
     .append("ids", "bitcoin")
-    .append("precision","6");
+    .append("precision","4");
 
-
-    return this.http.get<coin[]>("" + this.baseUrl +"simple/price", {params:params, headers:header});
-
+    return this.http.get<coin[]>("" + this.baseUrl +"simple/price", {params:params});
   }
 
 
