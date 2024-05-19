@@ -22,7 +22,7 @@ export class CotizacionCriptoComponent implements OnInit{
   public _dataCoin!:coin[] ;
   public cantItemsXPage :number=10;
   cantPages :number=0;
-  public actPages :number=0;
+  public actualPage :number=1;
 
   private strip(bandName: string) {
     return bandName;
@@ -46,27 +46,29 @@ export class CotizacionCriptoComponent implements OnInit{
 
   public searchCoin(event:Event){
 //    let filterValue = event.target.value.toLowerCase();
-  let filterValue =  (event.target as HTMLInputElement).value.toLowerCase();
+      let filterValue =  (event.target as HTMLInputElement).value.toLowerCase();
 
-   // console.log("filter values: " , filterValue.length);
-   /* console.log("filter values 2:" , filterValue);*/
+      // console.log("filter values: " , filterValue.length);
+      /* console.log("filter values 2:" , filterValue);*/
 
-    if(filterValue.length == 0 || filterValue == ""){
-      this.dataCoin = this._dataCoin;
-    }else{
-      this.dataCoin = this.dataCoin!.filter(item => item.name.toLowerCase().includes(filterValue))
-    }
-    this.cantItems = this.dataCoin.length;
-    //this.pageChanged(1);
+        if(filterValue.length == 0 || filterValue == ""){
+          this.dataCoin = this._dataCoin;
+        }else{
+          this.dataCoin = this.dataCoin!.filter(item => item.name.toLowerCase().includes(filterValue))
+        }
+        this.cantItems = this.dataCoin.length;
+
+        this.cantPages = Math.ceil(this.cantItems/this.cantItemsXPage);
+        this.actualPage = 1;
   }
 
   prePage(){
-
+    if (this.actualPage > 1) this.actualPage--;
   }
 
 
   nextPage(){
-
+    if (this.actualPage < this.cantPages) this.actualPage++;
   }
 
 }

@@ -6,11 +6,16 @@ import { coin } from '../model/coin';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: coin[], page: number, items:number): any {
-    if (page > 0){
-      return value.slice(page, page +items);
+  transform(value: coin[], page: number = 1, items:number): any {
+
+    let start:number = 0;
+    let end:number = 0;
+
+    if (page == 0) {start = 0; end = items} else{
+      start = (page  * items) - items;
+      end = page * items;
     }
-    return value;
+      return value.slice(start, end);
   }
 
 }
