@@ -45,11 +45,7 @@ export class CotizacionCriptoComponent implements OnInit{
 
 
   public searchCoin(event:Event){
-//    let filterValue = event.target.value.toLowerCase();
       let filterValue =  (event.target as HTMLInputElement).value.toLowerCase();
-
-      // console.log("filter values: " , filterValue.length);
-      /* console.log("filter values 2:" , filterValue);*/
 
         if(filterValue.length == 0 || filterValue == ""){
           this.dataCoin = this._dataCoin;
